@@ -31,7 +31,7 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            "url(/placeholder.svg?height=1080&width=1920&query=luxury%20car%20detailing%20ceramic%20coating)",
+            "url(https://images.unsplash.com/photo-1550355191-9579a0ce0e16?auto=format&fit=crop&w=1920&q=80)",
           backgroundAttachment: "fixed",
         }}
       >
