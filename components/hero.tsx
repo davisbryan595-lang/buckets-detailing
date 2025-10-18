@@ -40,25 +40,20 @@ export default function Hero() {
 
       {/* Animated Particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-accent rounded-full opacity-30"
-            animate={{
-              y: [0, -100, 0],
-              x: [0, Math.random() * 100 - 50, 0],
-            }}
-            transition={{
-              duration: 4 + i,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
+        {Array.from({ length: 5 }).map((_, i) => {
+          const left = `${(i * 19 + 7) % 100}%`
+          const top = `${(i * 29 + 11) % 100}%`
+          const xAmp = i % 2 === 0 ? 30 : -30
+          return (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-accent rounded-full opacity-30"
+              animate={{ y: [0, -100, 0], x: [0, xAmp, 0] }}
+              transition={{ duration: 4 + i, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+              style={{ left, top }}
+            />
+          )
+        })}
       </div>
 
       {/* Content */}
