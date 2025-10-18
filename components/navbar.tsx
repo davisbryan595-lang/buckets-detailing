@@ -40,9 +40,15 @@ export default function Navbar() {
             transition={{ duration: 0.5 }}
             className="flex-shrink-0"
           >
-            <motion.div whileHover={{ scale: 1.05 }} className="text-2xl font-bold text-accent cursor-pointer">
-              BUCK3TS
-            </motion.div>
+            <a href="#home" aria-label="BUCK3TS Home" className="inline-block">
+              <motion.div whileHover={{ scale: 1.05 }} className="rounded-lg animate-float hover:animate-glow">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F5c758e804cba4fa3a488e9088887877b%2F2702803553474174889b867138816310?format=webp&width=240"
+                  alt="BUCK3TS Mobile Detailing Logo"
+                  className="h-10 w-auto drop-shadow-[0_0_12px_rgba(94,165,255,0.45)]"
+                />
+              </motion.div>
+            </a>
           </motion.div>
 
           {/* Desktop Navigation */}
