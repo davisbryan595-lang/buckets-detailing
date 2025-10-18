@@ -22,7 +22,7 @@ function BeforeAfterCard({ before, after, title }: { before: string; after: stri
       <div
         ref={containerRef}
         className="relative h-64 rounded-lg overflow-hidden bg-card border border-border"
-        onMouseMove={(e) => dragging && updatePosition(e.clientX)}
+        onMouseMove={(e) => updatePosition(e.clientX)}
         onMouseEnter={(e) => updatePosition(e.clientX)}
         onMouseLeave={() => setDragging(false)}
         onPointerDown={(e) => {
