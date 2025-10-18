@@ -31,7 +31,7 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            "url(/placeholder.svg?height=1080&width=1920&query=luxury%20car%20detailing%20ceramic%20coating)",
+            "url(https://images.unsplash.com/photo-1550355191-9579a0ce0e16?auto=format&fit=crop&w=1920&q=80)",
           backgroundAttachment: "fixed",
         }}
       >
@@ -40,25 +40,20 @@ export default function Hero() {
 
       {/* Animated Particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-accent rounded-full opacity-30"
-            animate={{
-              y: [0, -100, 0],
-              x: [0, Math.random() * 100 - 50, 0],
-            }}
-            transition={{
-              duration: 4 + i,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
+        {Array.from({ length: 5 }).map((_, i) => {
+          const left = `${(i * 19 + 7) % 100}%`
+          const top = `${(i * 29 + 11) % 100}%`
+          const xAmp = i % 2 === 0 ? 30 : -30
+          return (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-accent rounded-full opacity-30"
+              animate={{ y: [0, -100, 0], x: [0, xAmp, 0] }}
+              transition={{ duration: 4 + i, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+              style={{ left, top }}
+            />
+          )
+        })}
       </div>
 
       {/* Content */}

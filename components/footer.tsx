@@ -19,7 +19,15 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-            <h3 className="text-2xl font-bold text-accent mb-2">BUCK3TS</h3>
+            <a href="#home" aria-label="BUCK3TS Home" className="inline-block mb-2">
+              <div className="rounded-lg animate-float hover:animate-glow inline-block">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F5c758e804cba4fa3a488e9088887877b%2F2702803553474174889b867138816310?format=webp&width=240"
+                  alt="BUCK3TS Mobile Detailing Logo"
+                  className="h-12 w-auto drop-shadow-[0_0_12px_rgba(94,165,255,0.45)]"
+                />
+              </div>
+            </a>
             <p className="text-muted-foreground">Premium mobile auto detailing in Des Moines Metro</p>
           </motion.div>
 
