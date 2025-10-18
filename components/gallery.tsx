@@ -68,6 +68,7 @@ export default function Gallery() {
     triggerOnce: true,
     threshold: 0.1,
   })
+  const [selectedImage, setSelectedImage] = useState<number | null>(null)
 
   const beforeAfterPairs = [
     {
@@ -146,6 +147,7 @@ export default function Gallery() {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
+                onClick={() => setSelectedImage(index)}
                 className="relative h-64 rounded-lg overflow-hidden cursor-pointer group"
               >
                 <img src={image || "/placeholder.svg"} alt={`Gallery ${index + 1}`} className="w-full h-full object-cover" />
@@ -159,6 +161,25 @@ export default function Gallery() {
             ))}
           </div>
         </motion.div>
+
+        {selectedImage !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+          >
+            <motion.img
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              src={galleryImages[selectedImage]}
+              alt="Enlarged"
+              className="max-w-2xl max-h-96 rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
       </div>
     </section>
   )
